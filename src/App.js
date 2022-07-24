@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter as Router, NavLink,} from 'react-router-dom'
+import {BrowserRouter as Router, NavLink, HashRouter} from 'react-router-dom'
 import {motion} from "framer-motion";
 import {auth} from './firebase-config'
 import {useState} from 'react'
@@ -26,7 +26,7 @@ function App() {
 
   return (
     
-    <Router>
+    <HashRouter hashType="hashbang" >
 
       <nav className="navbar">
         <div>
@@ -67,7 +67,7 @@ function App() {
     <main className='main-content'>
         <AnimatedPages isAuth={isAuth} setIsAuth={setIsAuth} userName={userName} setUserName={setUserName} />
     </main>
-    </Router>
+    </HashRouter>
 
   );
 }
