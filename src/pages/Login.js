@@ -17,6 +17,7 @@ function Login({setIsAuth,isAuth,userName,setUserName}) {
             setUserName(auth.currentUser.displayName);
             localStorage.setItem("username",auth.currentUser.displayName);
             navigate("/"); 
+            
         });
     };
 

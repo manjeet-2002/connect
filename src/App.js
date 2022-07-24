@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter as Router, NavLink, HashRouter} from 'react-router-dom'
+import {BrowserRouter as Router, NavLink,HashRouter} from 'react-router-dom'
 import {motion} from "framer-motion";
 import {auth} from './firebase-config'
 import {useState} from 'react'
@@ -26,7 +26,7 @@ function App() {
 
   return (
     
-    <HashRouter hashType="hashbang" >
+    <HashRouter hashType="hashbang">
 
       <nav className="navbar">
         <div>

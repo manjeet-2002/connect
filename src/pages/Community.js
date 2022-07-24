@@ -36,7 +36,6 @@ function Community({isAuth}) {
             Create Post
         </button>
     </div>
-    
 <div className='community-posts'>
     
 
