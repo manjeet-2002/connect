@@ -25,7 +25,7 @@ function App() {
 
 
   return (
-    <Router>
+   
     <HashRouter hashType="hashbang">
 
       <nav className="navbar">
@@ -68,7 +68,7 @@ function App() {
         <AnimatedPages isAuth={isAuth} setIsAuth={setIsAuth} userName={userName} setUserName={setUserName} />
     </main>
     </HashRouter>
-    </Router>
+   
 
   );
 }
