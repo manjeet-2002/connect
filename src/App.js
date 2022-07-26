@@ -46,7 +46,7 @@ function App() {
             <li className="nav-item">
                 <NavLink to="/donate" className="nav-link">
                     <span className='donate-i'>{donateIcon}</span>
-                    <span className="link-text">Donate</span>
+                    <span className="link-text">Contributions</span>
                 </NavLink>
             </li>
             <li className="nav-item">

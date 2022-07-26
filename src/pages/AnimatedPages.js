@@ -16,7 +16,7 @@ function AnimatedPages({isAuth,setIsAuth,userName,setUserName}) {
         <Route path="/" element={<Home isAuth={isAuth} userName={userName} />} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} isAuth={isAuth} userName={userName} setUserName={setUserName} />} />
         <Route path="/community" element={<Community isAuth={isAuth}/>} />
-        <Route path="/donate" element={<Donate />} />
+        <Route path="/donate" element={<Donate isAuth={isAuth}/>} />
         <Route path="/create-comm-post" element={<CreateCommPost isAuth={isAuth}/>} />
       </Routes>
       </AnimatePresence>

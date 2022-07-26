@@ -9,6 +9,7 @@ function CreateCommPost({isAuth}) {
   const [postText, setPostText] = useState("");
   let navigate = useNavigate();
   const postsCollectionRef = collection(db,"posts");
+  
   const createPost = async()=>{
       await addDoc(postsCollectionRef, {title,postText, author:{name: auth.currentUser.displayName, id:auth.currentUser.uid}});
     navigate("/community");
