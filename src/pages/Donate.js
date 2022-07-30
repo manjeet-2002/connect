@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import {collection, deleteDoc, getDocs,doc,addDoc} from 'firebase/firestore'
+import {collection, deleteDoc, getDocs,doc,addDoc, updateDoc} from 'firebase/firestore'
 import '../App.css'
 import { auth,db } from '../firebase-config';
 import {useNavigate} from 'react-router-dom'
@@ -7,11 +7,30 @@ function Donate({isAuth}) {
   const [contriTitle,setContriTitle] = useState("");
   const [contriType,setContriType] = useState("");
   const [contriLocation,setContriLocation] = useState("");
+  
   const navigate = useNavigate();
 
   const contriCollectionRef = collection(db,"contributions");
 
   const [contriList,setContriList] = useState([]);
+
+const makeContributionLive=async ()=>{
+    await addDoc(contriCollectionRef, {title:contriTitle,type:contriType,location:contriLocation,claimed:false,owner:{name:auth.currentUser.displayName,id:auth.currentUser.uid}})
+    setContriLocation("");
+    setContriTitle("");
+    setContriType("");
+  }
+
+const updateClaim=async(id)=>{
+  if(isAuth){
+    const docRef = doc(db,"contributions",id);
+    const updatedClaim = {claimed:true};
+    await updateDoc(docRef,updatedClaim);
+  }
+  else{
+    navigate("/login");
+  }
+}
 
   useEffect(()=>{
     const getContris = async () =>{
@@ -19,15 +38,10 @@ function Donate({isAuth}) {
         setContriList(data.docs.map((doc)=> ({...doc.data(), id:doc.id})));
     };
     getContris();
-},[]);
+  },[makeContributionLive,updateClaim]);
 
 
-  const makeContributionLive=async ()=>{
-    await addDoc(contriCollectionRef, {title:contriTitle,type:contriType,location:contriLocation,owner:{name:auth.currentUser.displayName,id:auth.currentUser.uid}})
-    setContriLocation("");
-    setContriTitle("");
-    setContriType("");
-  }
+    
 
 
 
@@ -86,7 +100,7 @@ function Donate({isAuth}) {
             </div>
             <div className='collect-card-footer'>
               <p>By: {contri.owner.name}</p>
-              <button>Collect</button>
+              {contri.claimed===false?<button onClick={()=>{updateClaim(contri.id)}}>Collect</button>:<p className='collected'>✅Collected</p>}
             </div>
         </div>
           )

@@ -277,7 +277,7 @@ span{
 
 .post-footer{
   display:flex;
-  align-items: center;
+  align-items: baseline;
   margin-top:auto;
 }
 
@@ -285,8 +285,15 @@ span{
   color:rgb(0,0,0,0.6);
 }
 
-.delete-button{
+.like{
   margin-left:auto;
+  margin-right:0.5rem;
+  border: none;
+  font-size: 1rem;
+  color: #377DFF;
+}
+
+.delete-button{
   margin-right:10px;
   border:none;
   color:var(--bg-primary)
@@ -532,4 +539,10 @@ textarea{
 
 .collect-card-footer button:hover{
   background-color: var(--color-hover);
+}
+.collected{
+  margin-left:auto;
+  margin-right:10px;
+  font-weight: 600;
+  color:rgb(8, 174, 8);
 }

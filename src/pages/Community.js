@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useNavigate} from "react-router-dom";
-import {collection, deleteDoc, getDocs,doc} from 'firebase/firestore'
+import {collection, deleteDoc, getDocs,doc, updateDoc} from 'firebase/firestore'
 import {auth, db} from '../firebase-config'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faTrash} from '@fortawesome/free-solid-svg-icons'
@@ -15,13 +15,18 @@ function Community({isAuth}) {
         const postDoc = doc(db,"posts",postID);
         await deleteDoc(postDoc);
    } 
+   const updateLike = async (id,like)=>{
+        const docRef = doc(db,"posts",id);
+        const upadatedLike = {likes:like+1};
+        await updateDoc(docRef,upadatedLike);
+   }
    useEffect(()=>{
         const getPosts = async () =>{
             const data = await getDocs(postsCollectionRef);
             setPostLists(data.docs.map((doc)=> ({...doc.data(), id:doc.id})));
         };
         getPosts();
-    },[deletePost]);
+    },[deletePost,updateLike]);
     
    
 
@@ -49,7 +54,7 @@ function Community({isAuth}) {
             <p className='comm-post-body'>{post.postText}</p>
             <div className='post-footer'>
             <p className='post-author'>@{post.author.name}</p>
-
+            <button className='like' onClick={()=>{updateLike(post.id,post.likes)}}>❤️{post.likes}</button>
             {(isAuth&&auth.currentUser.uid===post.author.id)&&<button className='delete-button' onClick={()=>{deletePost(post.id)}}>{deleteIcon}</button>}
             </div>
             </div>
