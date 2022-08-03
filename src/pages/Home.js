@@ -4,7 +4,7 @@ import "../App.css"
 
 function Home({isAuth,userName}) {
   return (
-    <div>
+    <div className='home-body'>
         <div className="home-header">
         <h1>Hello {userName}</h1>
         <p>welcome to connect.</p>

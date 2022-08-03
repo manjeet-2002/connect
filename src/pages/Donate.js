@@ -7,6 +7,8 @@ function Donate({isAuth}) {
   const [contriTitle,setContriTitle] = useState("");
   const [contriType,setContriType] = useState("");
   const [contriLocation,setContriLocation] = useState("");
+  const [makeContri,setMakeContri] = useState(false);
+  const [makeClaim,setMakeClaim] = useState(false);
   
   const navigate = useNavigate();
 
@@ -19,6 +21,8 @@ const makeContributionLive=async ()=>{
     setContriLocation("");
     setContriTitle("");
     setContriType("");
+    setMakeContri(!makeContri);
+    console.log("makeContributionLive Called");
   }
 
 const updateClaim=async(id)=>{
@@ -26,19 +30,23 @@ const updateClaim=async(id)=>{
     const docRef = doc(db,"contributions",id);
     const updatedClaim = {claimed:true};
     await updateDoc(docRef,updatedClaim);
+    setMakeClaim(!makeClaim);
+    console.log("updateClaim if called");
   }
   else{
     navigate("/login");
+    console.log("updateClaim else called");
   }
 }
 
   useEffect(()=>{
-    const getContris = async () =>{
+    const getContris = async () =>{  
         const data = await getDocs(contriCollectionRef);
         setContriList(data.docs.map((doc)=> ({...doc.data(), id:doc.id})));
+        console.log("getContris Called");
     };
     getContris();
-  },[makeContributionLive,updateClaim]);
+  },[makeContri,makeClaim]);
 
 
     
