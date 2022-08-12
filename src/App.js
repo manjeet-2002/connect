@@ -39,25 +39,25 @@ function App() {
             
             <li className="nav-item">
                 <NavLink to="/" className="nav-link">
-                    <span className='home-i'>{homeIcon}</span>
+                    <span className='home-i homeicon'>{homeIcon}</span>
                     <span className="link-text">Home</span>
                 </NavLink>
             </li>
             <li className="nav-item">
                 <NavLink to="/donate" className="nav-link">
-                    <span className='donate-i'>{donateIcon}</span>
+                    <span className='donate-i homeicon'>{donateIcon}</span>
                     <span className="link-text">Contributions</span>
                 </NavLink>
             </li>
             <li className="nav-item">
                 <NavLink to="/community" className="nav-link">
-                    <span className='community-i'>{communityIcon}</span>
+                    <span className='community-i homeicon'>{communityIcon}</span>
                     <span className="link-text">Community</span>
                 </NavLink>
             </li>
             <li className="nav-item">
                 <NavLink  to="/login" className="nav-link">
-                    <span className='account-i'>{accountIcon}</span>
+                    <span className='account-i homeicon'>{accountIcon}</span>
                     <span className="link-text">Account</span>
                 </NavLink>
             </li>

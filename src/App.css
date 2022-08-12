@@ -46,16 +46,7 @@ body::-webkit-scrollbar-thumb {
   color: var(--color-hover);
 }
 
-.nav-link:hover {
-  background-color: var(--bg-secondary);
-}
 
-nav a.active {
-  background-color: var(--color-hover);
-}
-nav a.active:hover {
-  background-color: var(--color-hover);
-}
 
 .navbar-nav {
   list-style: none;
@@ -108,6 +99,16 @@ span {
 }
 
 @media only screen and (min-width: 700px) {
+  .nav-link:hover {
+    background-color: var(--bg-secondary);
+  }
+  
+  nav a.active {
+    background-color: var(--color-hover);
+  }
+  nav a.active:hover {
+    background-color: var(--color-hover);
+  }
   .navbar {
     top: 0;
     width: 5rem;
@@ -150,7 +151,22 @@ span {
   }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (min-width: 400px) and (max-width: 700px) {
+  .community-header h1 {
+
+    font-size: 5vw;
+    
+  }
+  .nav-link:hover {
+    background-color: var(--bg-secondary);
+  }
+  
+  nav a.active {
+    background-color: var(--color-hover);
+  }
+  nav a.active:hover {
+    background-color: var(--color-hover);
+  }
   .navbar {
     align-items: center;
     flex-direction: row;
@@ -201,6 +217,84 @@ span {
   }
 }
 
+@media only screen and (max-width:400px) {
+  .home-header h1{
+    margin-top:5rem;
+  }
+  .community-header h1 {
+
+    font-size: 5vw;
+    
+  }
+  .navbar {
+    align-items: center;
+    flex-direction: row;
+    top: 0;
+    height: 5rem;
+    width: 100vw;
+  }
+  .logo {
+    display: inline;
+  }
+  .logo-small {
+    display: none;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+    margin-left: auto;
+
+  }
+  main {
+    margin-left: 0rem;
+    margin-top: 5rem;
+  }
+  .nav-item{
+    padding:0;
+    margin:20px;
+    width:20px;
+
+  }
+
+  .nav-link {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .nav-link:hover {
+    color: var(--bg-secondary);
+  }
+  
+  nav a.active .homeicon{
+    color: var(--color-hover);
+  }
+  nav a.active:hover {
+    color: var(--color-hover);
+  }
+
+  .community-header {
+    top: 0;
+    margin-left: 0px;
+
+  }
+
+  /*donate page css*/
+  .contribute {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contribute div {
+    width: 25rem;
+    margin: auto;
+  }
+  blockquote{
+    font-size: 4vw;
+  }
+}
+
+
 /*home css*/
 .home-body{
   height:100vh;
@@ -213,13 +307,13 @@ span {
   flex-direction: column;
   align-items: center;
   background-image: url('./pages/homebg.png');
-  height:90vh;
+  height:100vh;
   background-size:cover;
 }
 
 .home-header h1 {
   font-weight: 600;
-  margin:0;
+  
 }
 
 .home-header p {
@@ -232,7 +326,10 @@ blockquote{
   
   font-style: italic;
 }
-
+.down-arrow{
+  margin-top: 5rem;
+  
+}
 .scroll-one{
   margin-left:2rem;
   display: flex;
@@ -258,20 +355,21 @@ blockquote{
   height: 5rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: #ffffff;
-  /* border:solid rgb(0,0,0,0.1);
-  border-width: 0px 0px 1px 0px; */
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .community-header h1 {
-  margin-left: 5rem;
+  margin-left:1rem;
   font-weight: 400;
+  
+  
 }
 
 .create-comm-post-btn {
   margin-left: auto;
-  margin-right: 5rem;
+  margin-right:1rem;
   padding: 5px;
   height: 50px;
   width: 200px;
