@@ -99,6 +99,9 @@ span {
 }
 
 @media only screen and (min-width: 700px) {
+  .cpContainer{
+    width: 50vw;
+  }
   .nav-link:hover {
     background-color: var(--bg-secondary);
   }
@@ -152,6 +155,9 @@ span {
 }
 
 @media only screen and (min-width: 400px) and (max-width: 700px) {
+  .cpContainer{
+    width: 80%;
+  }
   .community-header h1 {
 
     font-size: 5vw;
@@ -209,7 +215,7 @@ span {
   }
 
   .contribute div {
-    width: 25rem;
+    width: 95vw;
     margin: auto;
   }
   blockquote{
@@ -218,6 +224,10 @@ span {
 }
 
 @media only screen and (max-width:400px) {
+  .cpContainer{
+    width: 85%;
+   
+  }
   .home-header h1{
     margin-top:5rem;
   }
@@ -260,16 +270,12 @@ span {
     flex-direction: column;
     justify-content: center;
   }
-  .nav-link:hover {
-    color: var(--bg-secondary);
-  }
+  
   
   nav a.active .homeicon{
     color: var(--color-hover);
   }
-  nav a.active:hover {
-    color: var(--color-hover);
-  }
+ 
 
   .community-header {
     top: 0;
@@ -286,7 +292,7 @@ span {
   }
 
   .contribute div {
-    width: 25rem;
+    width: 95vw;
     margin: auto;
   }
   blockquote{
@@ -331,7 +337,7 @@ blockquote{
   
 }
 .scroll-one{
-  margin-left:2rem;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -498,7 +504,7 @@ blockquote{
 .cpContainer {
   background-color: var(--bg-primary);
   color: white;
-  width: 50vw;
+  
   margin-top: 20px;
   border-radius: 20px;
   display: flex;
@@ -506,7 +512,7 @@ blockquote{
   align-items: center;
 }
 input {
-  width: 100%;
+  width: 90%;
   padding-top: 3px;
   padding-bottom: 3px;
 }
@@ -561,6 +567,8 @@ textarea {
 .contribute input {
   height: 1.5rem;
 }
+
+
 .contri-header-title {
   display: flex;
   align-items: center;
