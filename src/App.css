@@ -1,7 +1,7 @@
 :root {
   font-size: 16px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   
   --text-primary: #ffffff;
   --text-secondary: #ececec;
   --bg-primary: #283342;
@@ -9,6 +9,8 @@
   --color-hover: #377dff;
   --button-hover: #518cfc;
   --bg-body: #ffffff;
+  --red-button:rgb(255, 42, 102);
+  --red-button-hover:rgb(248, 31, 92);
 }
 
 .App {
@@ -98,6 +100,8 @@ span {
   color: var(--text-primary);
 }
 
+
+
 @media only screen and (min-width: 700px) {
   .cpContainer{
     width: 50vw;
@@ -152,6 +156,22 @@ span {
     margin-top:10%;
     font-size: 3vw;
   }
+}
+
+.modal-header{
+  display: flex;
+  align-items: center;
+  margin-top: 0px;
+  width: 100%;
+}
+.modal-header h1{
+  margin-right: auto;
+  margin-top: 0;
+}
+
+.modal-close-btn{
+  margin-top:0;
+  float: right;
 }
 
 @media only screen and (min-width: 400px) and (max-width: 700px) {
@@ -387,6 +407,7 @@ blockquote{
 
 .create-comm-post-btn:hover {
   background-color: var(--button-hover);
+  cursor:pointer;
 }
 
 .community-posts {
@@ -451,6 +472,7 @@ blockquote{
 
 .delete-button:hover {
   color: crimson;
+  cursor:pointer;
 }
 
 /* login page css */
@@ -471,11 +493,57 @@ blockquote{
 .Login-with-google {
   padding: 0;
   border: none;
+  border-radius: 5px;
+  cursor:pointer;
+  
+}
+
+.Login-with-google:hover{
+ 
   box-shadow: 0px 0px 10px #4285f4;
 }
-.Login-with-google:hover .btn-text {
-  background-color: #2573f0;
+
+/*sign out*/
+
+.sign-out{
+  margin-top: auto;
+  margin-bottom: auto;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  width: 15vw;
+  height: 20vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:10px;
 }
+
+.signed-in-title{
+  margin-top: 20px;
+  margin-bottom:40px;
+  font-size: large;
+  font-weight:bold;
+  
+}
+
+
+
+.sign-out-btn{
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  background-color: rgb(255, 42, 102);
+  color: white;
+}
+
+.sign-out-btn:hover{
+  box-shadow: 0 0 2px black;
+  background-color: rgb(248, 31, 92);
+}
+
+
+
+
 .google-btn {
   display: flex;
   align-items: center;
@@ -484,10 +552,10 @@ blockquote{
 
 .btn-text {
   margin: 0;
-  color: white;
+  color: black;
   padding: 10px;
   margin-left: 3px;
-  background-color: #4285f4;
+ 
 }
 
 .google-icon {
@@ -529,9 +597,10 @@ textarea {
   margin-bottom: 10px;
 }
 .submitpost {
-  background-color: white;
+  background-color: #377dff;;
   padding: 10px;
   width: 100px;
+  color:white;
   margin-top: 8px;
   margin-bottom: 12px;
   border: none;
@@ -540,7 +609,8 @@ textarea {
 
 .submitpost:hover {
   background-color: var(--color-hover);
-  color: var(--text-primary);
+  background-color:  #518cfc;
+  cursor:pointer;
 }
 
 
@@ -563,11 +633,11 @@ textarea {
 }
 .contri-button button:hover {
   background-color: var(--button-hover);
+  cursor:pointer;
 }
 .contribute input {
   height: 1.5rem;
 }
-
 
 .contri-header-title {
   display: flex;
@@ -581,6 +651,11 @@ textarea {
 hr {
   margin: 2px;
   padding: 0;
+}
+
+.collect-card-header{
+  display: flex;
+  align-items: baseline;
 }
 
 .collect-title {
@@ -628,11 +703,30 @@ hr {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 }
 
+.collect-card:hover{
+  cursor: pointer;
+}
+
 .collect-card-title {
   margin: 5px;
   color: var(--bg-primary);
+  
+}
+.collect-card-header button{
+  margin-left:auto;
+  width: 100px;
+  height: 30px;
+  background-color: var(--red-button);
+  color: white;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 0;
 }
 
+.collect-card-header button:hover{
+  background-color: var(--red-button-hover);
+}
 .collect-card-body {
   display: flex;
   align-items: center;
@@ -663,6 +757,7 @@ hr {
 
 .collect-card-footer button:hover {
   background-color: var(--color-hover);
+  cursor:pointer;
 }
 .collected {
   margin-left: auto;

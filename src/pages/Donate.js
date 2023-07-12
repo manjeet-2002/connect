@@ -3,12 +3,36 @@ import {collection, deleteDoc, getDocs,doc,addDoc, updateDoc} from 'firebase/fir
 import '../App.css'
 import { auth,db } from '../firebase-config';
 import {useNavigate} from 'react-router-dom'
+import {Box,Typography,Modal,Fab} from '@mui/material';
+
+
+
 function Donate({isAuth}) {
   const [contriTitle,setContriTitle] = useState("");
   const [contriType,setContriType] = useState("");
   const [contriLocation,setContriLocation] = useState("");
   const [makeContri,setMakeContri] = useState(false);
   const [makeClaim,setMakeClaim] = useState(false);
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    
+    boxShadow: 24,
+  
+    p:10,
+    pt:2
+  };
   
   const navigate = useNavigate();
 
@@ -47,11 +71,6 @@ const updateClaim=async(id)=>{
     };
     getContris();
   },[makeContri,makeClaim]);
-
-
-    
-
-
 
 
   return (
@@ -100,17 +119,25 @@ const updateClaim=async(id)=>{
 
       {contriList.map((contri)=>{
           return (
-            <div  className='collect-card'>  
-            <h3 className='collect-card-title'>{contri.title}</h3>
-            <div className='collect-card-body'>
-              <p>type:  {contri.type}</p>
-              <p>location: {contri.location}</p>
+            <div  className='collect-card' onClick={handleOpen}>  
+
+              <div className='collect-card-header'>
+                  <h3 className='collect-card-title'>{contri.title}</h3>
+                  <button>Show Map</button>
+              </div>
+              
+
+              <div className='collect-card-body'>
+                <p>type:  {contri.type}</p>
+                <p>location: {contri.location}</p>
+              </div>
+
+              <div className='collect-card-footer'>
+                <p>By: {contri.owner.name}</p>
+                {contri.claimed===false?<button onClick={()=>{updateClaim(contri.id)}}>Collect</button>:<p className='collected'>✅Collected</p>}
+              </div>
+
             </div>
-            <div className='collect-card-footer'>
-              <p>By: {contri.owner.name}</p>
-              {contri.claimed===false?<button onClick={()=>{updateClaim(contri.id)}}>Collect</button>:<p className='collected'>✅Collected</p>}
-            </div>
-        </div>
           )
       })
         
@@ -119,6 +146,26 @@ const updateClaim=async(id)=>{
   
         </div>
       </div>
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <div className='modal-header'>
+            <h1>Map</h1>
+            <Fab  className='modal-close-btn' size='small' color="primary" onClick={handleClose}>
+              X
+            </Fab>
+          </div>
+          
+         
+        </Box>
+      </Modal>
+
+
     </div>
     
   )
